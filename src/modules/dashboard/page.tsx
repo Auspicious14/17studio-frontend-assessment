@@ -3,6 +3,7 @@ import { Transaction } from "@/models/model";
 import React, { useState, useMemo } from "react";
 import { SummaryCard } from "./components/SummaryCard";
 import { TransactionTable } from "./components/TransactionTable";
+import { IoEllipsisHorizontal } from "react-icons/io5";
 
 export const Dashboard = () => {
   const [search, setSearch] = useState<string>("");
@@ -108,7 +109,21 @@ export const Dashboard = () => {
       <div className="container">
         <Sidebar />
         <div className="dashboard-container">
-          <h1 className="dashboard-title">Wallet Ledger Dashboard</h1>
+          <div className="dashboard-header">
+            <div className="dashboard-wallet">
+              <h1 className="dashboard-title">Wallet Ledger Dashboard</h1>
+              <div className="dashboard-status">
+                <span></span>
+                <p>Active</p>
+              </div>
+            </div>
+            <div className="dashboard-share">
+              <button className="share-button">Share</button>
+              <div className="dashboard-more">
+                <IoEllipsisHorizontal size={20} />
+              </div>
+            </div>
+          </div>
           <div className="summary-cards-grid">
             <SummaryCard
               title="Total Balance"

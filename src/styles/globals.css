@@ -210,7 +210,7 @@ ul li:hover {
 
 .dashboard-status {
   gap: 10px;
-  background-color: #f9fafb;
+  background-color: #e5e5e5;
   color: #fff;
   padding: 0.4rem 0.8rem;
   border-radius: 1.5rem;
@@ -227,6 +227,62 @@ ul li:hover {
 .dashboard-status p {
   color: #111827;
   font-size: 0.8rem;
+}
+
+.user-avatars {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  margin-left: -0.5rem;
+  object-fit: cover;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.avatar-count {
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.dashboard-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #6b7280;
+  position: relative;
+}
+
+.tab-button.active {
+  color: #111827;
+  font-weight: 600;
+}
+
+.tab-button.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #4b8b9f;
 }
 
 .dashboard-share {
@@ -290,7 +346,7 @@ ul li:hover {
 }
 
 .transaction-table thead {
-  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .transaction-table th {

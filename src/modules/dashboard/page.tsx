@@ -1,12 +1,16 @@
 import { Header, Sidebar } from "@/components";
 import { Transaction } from "@/models/model";
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, act } from "react";
 import { SummaryCard } from "./components/SummaryCard";
 import { TransactionTable } from "./components/TransactionTable";
 import { IoEllipsisHorizontal } from "react-icons/io5";
+import Image from "next/image";
 
 export const Dashboard = () => {
   const [search, setSearch] = useState<string>("");
+  const [activeTab, setActiveTab] = useState<"Overview" | "Transactions">(
+    "Overview"
+  );
   const [transactions, setTransactions] = useState<Transaction[]>([
     {
       id: "1",
@@ -117,12 +121,56 @@ export const Dashboard = () => {
                 <p>Active</p>
               </div>
             </div>
+
             <div className="dashboard-share">
               <button className="share-button">Share</button>
               <div className="dashboard-more">
                 <IoEllipsisHorizontal size={20} />
               </div>
             </div>
+          </div>
+          <div className="user-avatars">
+            <Image
+              width={20}
+              height={20}
+              src="/images/avatar-1.png"
+              alt="Avatar"
+              className="avatar"
+            />
+            <Image
+              width={20}
+              height={20}
+              src="/images/avatar-2.png"
+              alt="Avatar"
+              className="avatar"
+            />
+            <Image
+              width={20}
+              height={20}
+              src="/images/avatar-3.png"
+              alt="Avatar"
+              className="avatar"
+            />
+
+            <span className="avatar-count">+12 others</span>
+          </div>
+          <div className="dashboard-tabs">
+            <button
+              className={`tab-button ${
+                activeTab === "Overview" ? "active" : ""
+              }`}
+              onClick={() => setActiveTab("Overview")}
+            >
+              Overview
+            </button>
+            <button
+              className={`tab-button ${
+                activeTab === "Transactions" ? "active" : ""
+              }`}
+              onClick={() => setActiveTab("Transactions")}
+            >
+              Transactions
+            </button>
           </div>
           <div className="summary-cards-grid">
             <SummaryCard
@@ -151,7 +199,9 @@ export const Dashboard = () => {
             />
           </div>
           <div className="transaction-table-container">
-            <TransactionTable transactions={filteredTransactions} />
+            {activeTab === "Overview" && (
+              <TransactionTable transactions={filteredTransactions} />
+            )}
           </div>
         </div>
       </div>

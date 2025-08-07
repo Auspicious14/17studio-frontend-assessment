@@ -29,16 +29,21 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+ul {
+  padding-top: 2rem;
+}
+
 ul li {
   list-style-type: none;
-  padding-block: 1rem;
-  padding-left: 1rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
 }
 
 ul li:hover {
   color: #386776;
   background-color: #e5e5e5;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .main {
@@ -145,6 +150,11 @@ ul li:hover {
   object-fit: cover;
 }
 
+.summary-top-title {
+  font-weight: bold;
+  font-size: large;
+  padding-top: 2rem;
+}
 .summary-card {
   background-color: #ffffff;
   padding: 1rem;
@@ -153,6 +163,7 @@ ul li:hover {
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   flex: 1 1 0%;
   min-width: 200px;
+  margin-block: 2rem;
 }
 
 .summary-card-header {
@@ -202,6 +213,18 @@ ul li:hover {
     width: 100%;
     margin-left: 0;
     padding-top: 4rem;
+    padding-inline: 0;
+  }
+  .dashboard-header {
+    display: block;
+    flex-direction: column;
+  }
+  .dashboard-wallet {
+    display: block;
+  }
+  .dashboard-share {
+    width: 100%;
+    padding-block: 0.7rem;
   }
 }
 
@@ -219,6 +242,11 @@ ul li:hover {
 
 .dashboard-wallet {
   gap: 10px;
+}
+.dashboard-wallet-tittle-toggle {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .dashboard-status {
@@ -245,7 +273,6 @@ ul li:hover {
 .user-avatars {
   display: flex;
   align-items: center;
-  margin-left: 1rem;
 }
 
 .avatar {
@@ -271,6 +298,7 @@ ul li:hover {
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .tab-button {
@@ -306,6 +334,7 @@ ul li:hover {
   background: #4b8b9f;
   color: #111827;
   border-radius: 2rem;
+  border: none;
   padding: 0.5rem 1rem;
   outline: none;
   cursor: pointer;
@@ -316,10 +345,12 @@ ul li:hover {
   background: transparent;
   color: #111827;
   border-radius: 5rem;
-  padding: 0.5rem 1rem;
+  border: 1px solid #e5e5e5;
+  padding: 0.5rem 0.7rem;
+  cursor: pointer;
 }
 .dashboard-title {
-  font-size: 1.875rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #1f2937;
 }
@@ -337,6 +368,14 @@ ul li:hover {
   }
 }
 
+@media (max-width: 768px) {
+  .summary-top-title {
+    padding: 1rem 0.5rem;
+  }
+  .summary-card {
+    margin-block: 0rem;
+  }
+}
 @media (min-width: 1024px) {
   .summary-cards-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));

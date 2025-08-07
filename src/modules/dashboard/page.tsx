@@ -5,6 +5,7 @@ import { SummaryCard } from "./components/SummaryCard";
 import { TransactionTable } from "./components/TransactionTable";
 import { IoEllipsisHorizontal } from "react-icons/io5";
 import Image from "next/image";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 export const Dashboard = () => {
   const [search, setSearch] = useState<string>("");
@@ -115,7 +116,10 @@ export const Dashboard = () => {
         <div className="dashboard-container">
           <div className="dashboard-header">
             <div className="dashboard-wallet">
-              <h1 className="dashboard-title">Wallet Ledger Dashboard</h1>
+              <div className="dashboard-wallet-tittle-toggle">
+                <h1 className="dashboard-title">Wallet Ledger</h1>
+                <IoMdArrowDropdown size={20} />
+              </div>
               <div className="dashboard-status">
                 <span></span>
                 <p>Active</p>
@@ -152,7 +156,7 @@ export const Dashboard = () => {
               className="avatar"
             />
 
-            <span className="avatar-count">+12 others</span>
+            <span className="avatar-count">Ava, Liam, Noah +12 others</span>
           </div>
           <div className="dashboard-tabs">
             <button
@@ -172,6 +176,8 @@ export const Dashboard = () => {
               Transactions
             </button>
           </div>
+          <h1 className="summary-top-title">Summary</h1>
+
           <div className="summary-cards-grid">
             <SummaryCard
               title="Total Balance"

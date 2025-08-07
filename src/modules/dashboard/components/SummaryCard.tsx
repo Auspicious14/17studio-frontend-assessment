@@ -1,4 +1,5 @@
 import React from "react";
+import { IoEllipsisHorizontal, IoEllipsisVertical } from "react-icons/io5";
 
 interface SummaryCardProps {
   title: string;
@@ -20,7 +21,10 @@ export const SummaryCard: React.FC<SummaryCardProps> = ({
 
   return (
     <div className="summary-card">
-      <h3 className="summary-card-title">{title}</h3>
+      <div className="summary-card-header">
+        <h3 className="summary-card-title">{title}</h3>
+        <IoEllipsisHorizontal className="summary-card-ellipsis-icon" />
+      </div>
       <p className="summary-card-value">
         {typeof value === "number" ? `$${value.toLocaleString()}` : value}
       </p>

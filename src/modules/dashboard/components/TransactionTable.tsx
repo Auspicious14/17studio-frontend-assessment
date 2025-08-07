@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Transaction } from "@/models/model";
+import { MdArrowDropDown } from "react-icons/md";
 
 interface TransactionTableProps {
   transactions: Transaction[];
@@ -21,7 +22,11 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
   };
 
   const sortedTransactions = [...transactions].sort((a, b) => {
-    if (sortColumn === "date" || sortColumn === "amount") {
+    if (
+      sortColumn === "date" ||
+      sortColumn === "amount" ||
+      sortColumn === "type"
+    ) {
       const aValue = a[sortColumn];
       const bValue = b[sortColumn];
 
@@ -40,23 +45,56 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
     <table className="transaction-table">
       <thead>
         <tr>
-          <th
-            className="transaction-table-header sortable"
-            onClick={() => handleSort("date")}
-          >
-            Date
-            {sortColumn === "date" && (sortDirection === "asc" ? " ▲" : " ▼")}
+          <th className="sortable" onClick={() => handleSort("date")}>
+            <div className="transaction-table-header">
+              Date
+              <MdArrowDropDown
+                className={`sort-icon ${
+                  sortDirection === "desc" ? "rotate-180" : ""
+                }`}
+              />
+            </div>
           </th>
-          <th className="transaction-table-header">Remark</th>
-          <th
-            className="transaction-table-header sortable"
-            onClick={() => handleSort("amount")}
-          >
-            Amount
-            {sortColumn === "amount" && (sortDirection === "asc" ? " ▲" : " ▼")}
+          <th>
+            <div className="transaction-table-header">
+              Remark
+              <MdArrowDropDown
+                className={`sort-icon ${
+                  sortDirection === "desc" ? "rotate-180" : ""
+                }`}
+              />
+            </div>
           </th>
-          <th className="transaction-table-header">Currency</th>
-          <th className="transaction-table-header">Type</th>
+          <th className="sortable" onClick={() => handleSort("amount")}>
+            <div className="transaction-table-header">
+              Amount
+              <MdArrowDropDown
+                className={`sort-icon ${
+                  sortDirection === "desc" ? "rotate-180" : ""
+                }`}
+              />
+            </div>
+          </th>
+          <th>
+            <div className="transaction-table-header">
+              Currency
+              <MdArrowDropDown
+                className={`sort-icon ${
+                  sortDirection === "desc" ? "rotate-180" : ""
+                }`}
+              />
+            </div>
+          </th>
+          <th>
+            <div className="transaction-table-header">
+              Type
+              <MdArrowDropDown
+                className={`sort-icon ${
+                  sortDirection === "desc" ? "rotate-180" : ""
+                }`}
+              />
+            </div>
+          </th>
         </tr>
       </thead>
       <tbody>

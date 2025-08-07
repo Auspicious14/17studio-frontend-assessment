@@ -1,5 +1,5 @@
 import { Header, Sidebar } from "@/components";
-import { Transaction } from "@/models/model";
+import { ITransaction } from "@/models/model";
 import React, { useState, useMemo, act } from "react";
 import { SummaryCard } from "./components/SummaryCard";
 import { TransactionTable } from "./components/TransactionTable";
@@ -12,7 +12,7 @@ export const Dashboard = () => {
   const [activeTab, setActiveTab] = useState<"Overview" | "Transactions">(
     "Overview"
   );
-  const [transactions, setTransactions] = useState<Transaction[]>([
+  const [transactions, setTransactions] = useState<ITransaction[]>([
     {
       id: "1",
       date: "2023-10-01",

@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { Transaction } from "@/models/model";
+import { ITransaction } from "@/models/model";
 import { MdArrowDropDown } from "react-icons/md";
 
-interface TransactionTableProps {
-  transactions: Transaction[];
+interface ITransactionTableProps {
+  transactions: ITransaction[];
 }
 
-export const TransactionTable: React.FC<TransactionTableProps> = ({
+export const TransactionTable: React.FC<ITransactionTableProps> = ({
   transactions,
 }) => {
-  const [sortColumn, setSortColumn] = useState<keyof Transaction | null>(null);
+  const [sortColumn, setSortColumn] = useState<keyof ITransaction | null>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
 
-  const handleSort = (column: keyof Transaction) => {
+  const handleSort = (column: keyof ITransaction) => {
     if (sortColumn === column) {
       setSortDirection(sortDirection === "asc" ? "desc" : "asc");
     } else {

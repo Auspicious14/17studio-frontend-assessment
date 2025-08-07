@@ -1,13 +1,13 @@
-interface Transaction {
+export interface ITransaction {
   id: string;
   date: string;
   remark: string;
   amount: number;
   currency: string;
-  type: 'Credit' | 'Debit';
+  type: "Credit" | "Debit";
 }
 
-interface DashboardSummary {
+export interface IDashboardSummary {
   totalBalance: number;
   totalCredits: number;
   totalDebits: number;
@@ -17,5 +17,3 @@ interface DashboardSummary {
   debitsChange: number;
   transactionChange: number;
 }
-
-export type { Transaction, DashboardSummary };

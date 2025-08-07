@@ -22,11 +22,7 @@ export const TransactionTable: React.FC<ITransactionTableProps> = ({
   };
 
   const sortedTransactions = [...transactions].sort((a, b) => {
-    if (
-      sortColumn === "date" ||
-      sortColumn === "amount" ||
-      sortColumn === "type"
-    ) {
+    if (sortColumn === "date" || sortColumn === "amount") {
       const aValue = a[sortColumn];
       const bValue = b[sortColumn];
 
